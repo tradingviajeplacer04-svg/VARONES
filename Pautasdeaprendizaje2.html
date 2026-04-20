@@ -1,218 +1,226 @@
-import React, { useState } from 'react';
-import { BookOpen, Brain, Zap, ArrowRight, CheckCircle2, Info } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las 3 Etapas del Conocimiento</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .stage-card.active {
+            transform: scale(1.05);
+            border-color: currentColor;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 10;
+            opacity: 1;
+        }
+        .progress-ring {
+            transition: stroke-dashoffset 0.5s ease;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
 
-const StageCard = ({ stage, active, onClick }) => {
-  const themes = {
-    1: {
-      color: 'bg-blue-500',
-      light: 'bg-blue-50',
-      border: 'border-blue-200',
-      text: 'text-blue-700',
-      icon: <BookOpen className="w-8 h-8 text-white" />
-    },
-    2: {
-      color: 'bg-indigo-500',
-      light: 'bg-indigo-50',
-      border: 'border-indigo-200',
-      text: 'text-indigo-700',
-      icon: <Brain className="w-8 h-8 text-white" />
-    },
-    3: {
-      color: 'bg-purple-600',
-      light: 'bg-purple-50',
-      border: 'border-purple-200',
-      text: 'text-purple-700',
-      icon: <Zap className="w-8 h-8 text-white" />
-    }
-  };
-
-  const theme = themes[stage.id];
-
-  return (
-    <div 
-      onClick={onClick}
-      className={`relative flex-1 p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer overflow-hidden
-        ${active ? `${theme.border} shadow-xl scale-105 z-10` : 'border-transparent bg-white hover:bg-gray-50 opacity-80 hover:opacity-100'}
-      `}
-    >
-      {/* Background Accent */}
-      {active && <div className={`absolute top-0 right-0 w-24 h-24 ${theme.color} opacity-10 rounded-bl-full`} />}
-      
-      <div className="flex flex-col items-center text-center space-y-4">
-        <div className={`p-4 rounded-xl ${theme.color} shadow-lg shadow-current/20`}>
-          {theme.icon}
-        </div>
+    <div class="max-w-6xl mx-auto p-4 md:p-8">
         
-        <div>
-          <span className={`text-xs font-bold uppercase tracking-widest ${theme.text} mb-1 block`}>
-            Etapa 0{stage.id}
-          </span>
-          <h3 className="text-xl font-bold text-gray-900">{stage.title}</h3>
-          <p className={`text-sm font-medium ${theme.text}`}>{stage.subtitle}</p>
-        </div>
-
-        <div className={`w-full pt-4 space-y-2 text-left ${active ? 'block' : 'hidden md:block'}`}>
-          {stage.points.map((point, idx) => (
-            <div key={idx} className="flex items-start space-x-2">
-              <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${theme.text}`} />
-              <span className="text-sm text-gray-600">{point}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const App = () => {
-  const [activeStage, setActiveStage] = useState(1);
-
-  const stages = [
-    {
-      id: 1,
-      title: "Conocer",
-      subtitle: "Adquisición de Datos",
-      description: "Es el primer contacto con la información. Aquí el cerebro registra nombres, fechas, términos y conceptos sin necesariamente ver el 'cuadro completo'.",
-      points: [
-        "Memorización de datos",
-        "Reconocimiento de términos",
-        "Escucha pasiva o lectura",
-        "Identificación de hechos"
-      ],
-      question: "¿Qué es esto?",
-      analogy: "Tienes todas las piezas de un rompecabezas sobre la mesa."
-    },
-    {
-      id: 2,
-      title: "Entender",
-      subtitle: "Procesamiento Lógico",
-      description: "La información se conecta con conocimientos previos. Eres capaz de explicar el concepto con tus propias palabras y entender por qué funciona.",
-      points: [
-        "Interpretación personal",
-        "Explicación de causas",
-        "Conexión de ideas",
-        "Resumen y síntesis"
-      ],
-      question: "¿Por qué funciona así?",
-      analogy: "Empiezas a encajar las piezas y ves la imagen que forman."
-    },
-    {
-      id: 3,
-      title: "Aplicar",
-      subtitle: "Sabiduría en Acción",
-      description: "El conocimiento se vuelve una herramienta. Se utiliza para resolver problemas reales, crear algo nuevo o transformar el entorno.",
-      points: [
-        "Resolución de problemas",
-        "Creación de proyectos",
-        "Toma de decisiones",
-        "Enseñanza a otros"
-      ],
-      question: "¿Cómo lo uso hoy?",
-      analogy: "Usas la imagen del rompecabezas para decorar o inspirar una obra nueva."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            El Viaje del <span className="text-indigo-600">Aprendizaje</span>
-          </h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            De la simple información a la transformación personal. Haz clic en cada etapa para profundizar.
-          </p>
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                El Viaje del <span class="text-indigo-600">Aprendizaje</span>
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                De la simple información a la transformación personal. Haz clic en cada etapa para profundizar.
+            </p>
         </header>
 
-        {/* Infographic Container */}
-        <div className="flex flex-col md:flex-row gap-6 mb-12 items-stretch">
-          {stages.map((stage) => (
-            <StageCard 
-              key={stage.id} 
-              stage={stage} 
-              active={activeStage === stage.id}
-              onClick={() => setActiveStage(stage.id)}
-            />
-          ))}
-        </div>
-
-        {/* Detailed View / Mobile Focus */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 space-y-6">
-              <div className="flex items-center space-x-3">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl
-                  ${activeStage === 1 ? 'bg-blue-500' : activeStage === 2 ? 'bg-indigo-500' : 'bg-purple-600'}
-                `}>
-                  {activeStage}
+        <!-- Cards Container -->
+        <div id="cards-container" class="flex flex-col md:flex-row gap-6 mb-12 items-stretch">
+            <!-- Stage 1 -->
+            <div onclick="setActiveStage(1)" id="card-1" class="stage-card relative flex-1 p-6 rounded-2xl border-2 border-transparent bg-white hover:bg-gray-50 opacity-80 cursor-pointer transition-all duration-300 overflow-hidden text-blue-600">
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="p-4 rounded-xl bg-blue-500 shadow-lg shadow-blue-500/20">
+                        <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-700 mb-1 block">Etapa 01</span>
+                        <h3 class="text-xl font-bold text-gray-900">Conocer</h3>
+                        <p class="text-sm font-medium text-blue-700">Adquisición de Datos</p>
+                    </div>
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900">
-                  {stages[activeStage - 1].title}: <span className="text-slate-500 italic font-medium">{stages[activeStage - 1].subtitle}</span>
-                </h2>
-              </div>
-              
-              <p className="text-lg text-slate-700 leading-relaxed">
-                {stages[activeStage - 1].description}
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1">Pregunta Clave</span>
-                  <p className="text-xl font-semibold text-slate-800 italic">
-                    "{stages[activeStage - 1].question}"
-                  </p>
-                </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1">Analogía</span>
-                  <p className="text-slate-700">
-                    {stages[activeStage - 1].analogy}
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Visual Progress Map */}
-            <div className="hidden lg:flex flex-col items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-100 w-64">
-              <div className="relative w-full aspect-square flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" strokeWidth="8" />
-                  <circle 
-                    cx="50" cy="50" r="45" fill="none" 
-                    stroke={activeStage === 1 ? '#3b82f6' : activeStage === 2 ? '#6366f1' : '#9333ea'} 
-                    strokeWidth="8" 
-                    strokeDasharray="283"
-                    strokeDashoffset={283 - (283 * (activeStage / 3))}
-                    className="transition-all duration-1000 ease-out"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center rotate-90">
-                  <span className="text-4xl font-black text-slate-800">{Math.round((activeStage/3)*100)}%</span>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase">Integración</span>
+            <!-- Stage 2 -->
+            <div onclick="setActiveStage(2)" id="card-2" class="stage-card relative flex-1 p-6 rounded-2xl border-2 border-transparent bg-white hover:bg-gray-50 opacity-80 cursor-pointer transition-all duration-300 overflow-hidden text-indigo-600">
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="p-4 rounded-xl bg-indigo-500 shadow-lg shadow-indigo-500/20">
+                        <i data-lucide="brain" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-indigo-700 mb-1 block">Etapa 02</span>
+                        <h3 class="text-xl font-bold text-gray-900">Entender</h3>
+                        <p class="text-sm font-medium text-indigo-700">Procesamiento Lógico</p>
+                    </div>
                 </div>
-              </div>
-              <p className="mt-4 text-xs text-center font-medium text-slate-500">
-                Progreso del aprendizaje profundo
-              </p>
             </div>
-          </div>
+
+            <!-- Stage 3 -->
+            <div onclick="setActiveStage(3)" id="card-3" class="stage-card relative flex-1 p-6 rounded-2xl border-2 border-transparent bg-white hover:bg-gray-50 opacity-80 cursor-pointer transition-all duration-300 overflow-hidden text-purple-600">
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="p-4 rounded-xl bg-purple-600 shadow-lg shadow-purple-600/20">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-purple-700 mb-1 block">Etapa 03</span>
+                        <h3 class="text-xl font-bold text-gray-900">Aplicar</h3>
+                        <p class="text-sm font-medium text-purple-700">Sabiduría en Acción</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        {/* Footer Note */}
-        <footer className="mt-12 flex items-center justify-center space-x-4 text-slate-400">
-          <div className="h-px w-12 bg-slate-200"></div>
-          <p className="text-sm font-medium flex items-center gap-2">
-            <Info className="w-4 h-4" />
-            Recuerda: No hay aprendizaje real sin llegar a la tercera etapa.
-          </p>
-          <div className="h-px w-12 bg-slate-200"></div>
+        <!-- Detailed Panel -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-1 space-y-6 fade-in" id="detail-content">
+                    <!-- Content will be injected here via JavaScript -->
+                </div>
+
+                <!-- Progress Map -->
+                <div class="hidden lg:flex flex-col items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-100 w-64">
+                    <div class="relative w-full aspect-square flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="8" />
+                            <circle id="progress-circle" cx="50" cy="50" r="45" fill="none" 
+                                    stroke="#3b82f6" stroke-width="8" 
+                                    stroke-dasharray="283"
+                                    stroke-dashoffset="188"
+                                    class="progress-ring"
+                                    stroke-linecap="round" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center rotate-90">
+                            <span id="percent-text" class="text-4xl font-black text-slate-800">33%</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Integración</span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs text-center font-medium text-slate-500">
+                        Progreso del aprendizaje profundo
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 flex items-center justify-center space-x-4 text-slate-400">
+            <div class="h-px w-12 bg-slate-200"></div>
+            <p class="text-sm font-medium flex items-center gap-2">
+                <i data-lucide="info" class="w-4 h-4"></i>
+                Recuerda: No hay aprendizaje real sin llegar a la tercera etapa.
+            </p>
+            <div class="h-px w-12 bg-slate-200"></div>
         </footer>
-
-      </div>
     </div>
-  );
-};
 
-export default App;
+    <script>
+        const stages = [
+            {
+                id: 1,
+                title: "Conocer",
+                subtitle: "Adquisición de Datos",
+                color: "#3b82f6",
+                description: "Es el primer contacto con la información. Aquí el cerebro registra nombres, fechas, términos y conceptos sin necesariamente ver el 'cuadro completo'.",
+                question: "¿Qué es esto?",
+                analogy: "Tienes todas las piezas de un rompecabezas sobre la mesa."
+            },
+            {
+                id: 2,
+                title: "Entender",
+                subtitle: "Procesamiento Lógico",
+                color: "#6366f1",
+                description: "La información se conecta con conocimientos previos. Eres capaz de explicar el concepto con tus propias palabras y entender por qué funciona.",
+                question: "¿Por qué funciona así?",
+                analogy: "Empiezas a encajar las piezas y ves la imagen que forman."
+            },
+            {
+                id: 3,
+                title: "Aplicar",
+                subtitle: "Sabiduría en Acción",
+                color: "#9333ea",
+                description: "El conocimiento se vuelve una herramienta. Se utiliza para resolver problemas reales, crear algo nuevo o transformar el entorno.",
+                question: "¿Cómo lo uso hoy?",
+                analogy: "Usas la imagen del rompecabezas para decorar o inspirar una obra nueva."
+            }
+        ];
+
+        function setActiveStage(id) {
+            const stage = stages[id - 1];
+            
+            // Update classes on cards
+            document.querySelectorAll('.stage-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById(`card-${id}`).classList.add('active');
+
+            // Update Detail Content
+            const detailContainer = document.getElementById('detail-content');
+            detailContainer.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl" style="background-color: ${stage.color}">
+                        ${stage.id}
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-900">
+                        ${stage.title}: <span class="text-slate-500 italic font-medium font-serif">${stage.subtitle}</span>
+                    </h2>
+                </div>
+                
+                <p class="text-lg text-slate-700 leading-relaxed">
+                    ${stage.description}
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Pregunta Clave</span>
+                        <p class="text-xl font-semibold text-slate-800 italic">
+                            "${stage.question}"
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Analogía</span>
+                        <p class="text-slate-700">
+                            ${stage.analogy}
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Reiniciar animación
+            detailContainer.classList.remove('fade-in');
+            void detailContainer.offsetWidth; // Trigger reflow
+            detailContainer.classList.add('fade-in');
+
+            // Update Circle Progress
+            const circle = document.getElementById('progress-circle');
+            const percentText = document.getElementById('percent-text');
+            const circumference = 283;
+            const offset = circumference - (circumference * (id / 3));
+            circle.style.strokeDashoffset = offset;
+            circle.style.stroke = stage.color;
+            percentText.innerText = Math.round((id / 3) * 100) + '%';
+        }
+
+        // Initialize
+        window.onload = () => {
+            lucide.createIcons();
+            setActiveStage(1);
+        };
+    </script>
+</body>
+</html>
