@@ -1,0 +1,140 @@
+<!-- Palette: Vibrant Blue & Amber (#0F172A, #1E293B, #F59E0B, #3B82F6, #10B981) -->
+<!-- NO SVG and NO MERMAID JS were used in this output. -->
+<!-- Narrative Plan: 1. Hook (The Main Verse & Welcome). 2. Contextual Data (Bar chart comparing worldly pressures to required spiritual resolve). 3. The 3 Pillars Analysis (Radar chart visualizing the balance of a leader). 4. Breakdown (Detailed grid of the 3 action points). 5. Call to Action (Timeline/Process for the weekly challenge). -->
+<!-- Chart Justifications: Data Point 1 (Pressures vs Resolve) -> Goal: Compare -> Chosen: Bar Chart -> Justification: Effectively contrasts the weight of external pressures against the required internal resolve mentioned in the text. Library: Chart.js. NO SVG used. Data Point 2 (The 3 Pillars) -> Goal: Relationships/Organize -> Chosen: Radar Chart -> Justification: Visually demonstrates how a man must balance and expand multiple qualitative spiritual responsibilities simultaneously. Library: Chart.js. NO SVG used. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devocional de Varones - Infografía Semanal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background-color: #1E293B;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased leading-relaxed pb-16">
+
+    <header class="bg-[#1E293B] border-b-4 border-[#F59E0B] py-12 px-4 shadow-xl text-center">
+        <div class="max-w-4xl mx-auto">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAGLCAYAAAA/NPZsAAAF4GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpDb2xvclNwYWNlPSIxIgogICBleGlmOlBpeGVsWERpbWVuc2lvbj0iODAwIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzk1IgogICBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIgogICBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiCiAgIHRpZmY6SW1hZ2VMZW5ndGg9IjM5NSIKICAgdGlmZjpJbWFnZVdpZHRoPSI4MDAiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249IjMwMC8xIgog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" alt="Logo Iglesia" class="mx-auto h-24 md:h-32 mb-6 object-contain">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#F8FAFC] mb-4 uppercase">¡BENDECIDA NUEVA SEMANA, HERMANOS!</h1>
+            <p class="text-[#3B82F6] font-semibold text-lg md:text-xl tracking-wide uppercase mb-8">Primer Lema del Año</p>
+            <div class="bg-[#0F172A] p-6 md:p-8 rounded-2xl border border-[#3B82F6] inline-block shadow-2xl transform hover:scale-105 transition duration-300">
+                <blockquote class="text-2xl md:text-3xl font-serif italic text-[#F59E0B]">
+                    "Pero yo y mi casa serviremos a Jehová."
+                </blockquote>
+                <cite class="block mt-4 text-[#10B981] font-bold text-lg">— Josué 24:15b</cite>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-12 space-y-16">
+
+        <section>
+            <div class="mb-8 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-4">El Entorno de Nuestra Decisión</h2>
+                <p class="text-lg text-slate-300">
+                    Josué no pronunció estas palabras en un momento de total calma, sino en un tiempo crucial de decisión para el pueblo. Él se puso de pie, como líder de su familia, y marcó el rumbo. A lo largo de esta semana, enfrentaremos múltiples factores que intentarán desenfocarnos de nuestro llamado como sacerdotes y protectores del hogar.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="mb-8 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-[#3B82F6] mb-4">Los Pilares del Sacerdote del Hogar</h2>
+                <p class="text-lg text-slate-300">
+                    Servir a Jehová con nuestra casa no es solo un acto de asistencia a la iglesia; es una disciplina integral. Como guías espirituales, estamos llamados a mantener un balance y crecimiento constante en tres áreas fundamentales de influencia dentro de nuestro círculo familiar.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">🛡️</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#F59E0B]">Liderar con el ejemplo</h3>
+                                <p class="text-slate-400 mt-1">Que nuestras esposas e hijos vean a Cristo en nuestra forma de reaccionar, hablar y amar cada día.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">📖</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#3B82F6]">Proveer espiritualmente</h3>
+                                <p class="text-slate-400 mt-1">Tomar la iniciativa para orar en casa, leer la Palabra y buscar la dirección de Dios antes de decidir.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">⚔️</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#10B981]">Tener valentía</h3>
+                                <p class="text-slate-400 mt-1">Plantarnos firmes ante los valores del mundo y declarar con acciones: "En este hogar, el Rey es Cristo".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 bg-[#1E293B] rounded-3xl p-8 md:p-12 border-2 border-[#F59E0B] shadow-[0_0_30px_rgba(245,158,11,0.15)]">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-black text-[#F8FAFC] mb-4">⚔️ El Desafío de la Semana</h2>
+                <p class="text-xl text-[#F59E0B] font-medium">No esperes a que alguien más lo haga.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative">
+                
+                <div class="absolute hidden md:block top-1/2 left-0 w-full h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] transform -translate-y-1/2 z-0"></div>
+
+                <div class="bg-[#0F172A] p-6 rounded-xl border-t-4 border-[#3B82F6] w-full text-center z-10 shadow-lg">
+                    <div class="w-12 h-12 bg-[#3B82F6] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 -mt-12 border-4 border-[#1E293B]">1</div>
+                    <h4 class="font-bold text-lg text-[#F8FAFC]">Toma la Iniciativa</h4>
+                    <p class="text-slate-400 text-sm mt-2">Identifica el momento adecuado hoy mismo para reunir a tu familia o separar tu tiempo a solas.</p>
+                </div>
+
+                <div class="bg-[#0F172A] p-6 rounded-xl border-t-4 border-[#F59E0B] w-full text-center z-10 shadow-lg">
+                    <div class="w-12 h-12 bg-[#F59E0B] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 -mt-12 border-4 border-[#1E293B]">2</div>
+                    <h4 class="font-bold text-lg text-[#F8FAFC]">Ora con Propósito</h4>
+                    <p class="text-slate-400 text-sm mt-2">Ora por tu esposa e hijos. Si estás soltero, ora por la familia que Dios te dará o por tus padres.</p>
+                </div>
+
+                <div class="bg-[#0F172A] p-6 rounded-xl border-t-4 border-[#10B981] w-full text-center z-10 shadow-lg">
+                    <div class="w-12 h-12 bg-[#10B981] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 -mt-12 border-4 border-[#1E293B]">3</div>
+                    <h4 class="font-bold text-lg text-[#F8FAFC]">Sé Luz Activa</h4>
+                    <p class="text-slate-400 text-sm mt-2">Conviértete en un faro de la gracia de Dios dondequiera que estés durante toda la semana.</p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-2xl font-bold text-[#F8FAFC]">¡Que tengan una semana victoriosa y llena de la gracia de Dios!</p>
+                <p class="text-[#3B82F6] mt-2 text-lg">Un abrazo fuerte para todos.</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
