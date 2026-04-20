@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenación Ministerial ACyM - Infografía</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: #f9fafb !important;
+            }
+            @page {
+                margin: 0.5cm;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800 font-sans p-4 sm:p-8">
+
+    <!-- Contenedor principal de la infografía -->
+    <div id="infografia-content">
+        
+        <!-- Header -->
+        <header class="max-w-5xl mx-auto bg-blue-900 text-white rounded-t-3xl p-8 shadow-lg relative overflow-hidden">
+            <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+                <i data-lucide="shield-check" style="width: 250px; height: 250px;"></i>
+            </div>
+            <div class="relative z-10 flex flex-col items-center text-center">
+                <i data-lucide="award" class="mb-4 text-yellow-400" style="width: 64px; height: 64px;"></i>
+                <h1 class="text-3xl sm:text-5xl font-bold mb-2 uppercase tracking-wide">Ordenación Ministerial</h1>
+                <h2 class="text-xl sm:text-2xl font-light text-blue-200">Iglesia Alianza Cristiana y Misionera de Chile</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-blue-100 text-sm sm:text-base">
+                    Guía visual del proceso oficial para el reconocimiento público y certificación de un siervo de Dios llamado al ministerio evangélico.
+                </p>
+            </div>
+        </header>
+
+        <main class="max-w-5xl mx-auto bg-white shadow-xl rounded-b-3xl p-6 sm:p-10 border border-t-0 border-gray-200">
+            
+            <!-- ACTORES DEL PROCESO -->
+            <section class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="users" class="text-blue-600" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 border-b-4 border-blue-600 pb-1">Actores Principales</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Actor 1 -->
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 bg-slate-800 text-white rounded-lg flex items-center justify-center mb-4 shadow-md">
+                            <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Junta Ejecutiva</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Responsable de la política de ordenación y de dar la aprobación final o rechazo a los candidatos.</p>
+                    </div>
+                    <!-- Actor 2 -->
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 bg-blue-700 text-white rounded-lg flex items-center justify-center mb-4 shadow-md">
+                            <i data-lucide="briefcase" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Comité de Distrito</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Administra el proceso. Asigna al pastor administrativo, evalúa y recomienda la ordenación.</p>
+                    </div>
+                    <!-- Actor 3 -->
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 bg-teal-600 text-white rounded-lg flex items-center justify-center mb-4 shadow-md">
+                            <i data-lucide="user" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Pastor Administrativo</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Supervisa, evalúa semestralmente y anima al aspirante durante todos los años del proceso.</p>
+                    </div>
+                    <!-- Actor 4 -->
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <div class="w-14 h-14 bg-amber-600 text-white rounded-lg flex items-center justify-center mb-4 shadow-md">
+                            <i data-lucide="building" style="width: 32px; height: 32px;"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Iglesia Local</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Colabora en la evaluación a través del Consejo Ministerial y respalda la solicitud final.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LÍNEA DE TIEMPO: 2 ETAPAS -->
+            <section class="mb-16 bg-gray-50 -mx-6 sm:-mx-10 px-6 sm:px-10 py-12 border-y border-gray-200">
+                <div class="flex items-center gap-3 mb-10">
+                    <i data-lucide="clock" class="text-blue-600" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 border-b-4 border-blue-600 pb-1">Las Dos Etapas del Proceso</h3>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Etapa 1 -->
+                    <div class="flex-1 bg-white p-6 rounded-2xl shadow-md border-t-8 border-teal-500 relative">
+                        <div class="absolute -top-5 right-6 bg-teal-500 text-white text-sm font-bold px-4 py-1 rounded-full">Años 1 al 3</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">1. Proceso de Preparación</h4>
+                        <p class="text-teal-600 font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="user" style="width: 18px; height: 18px;"></i> Rol: Aspirante a Pastor
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-teal-500 shrink-0" style="width: 18px; height: 18px;"></i> Se asigna un Pastor Administrativo inmediatamente.</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-teal-500 shrink-0" style="width: 18px; height: 18px;"></i> Reuniones mensuales de orientación y animación.</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-teal-500 shrink-0" style="width: 18px; height: 18px;"></i> Evaluaciones semestrales informadas al Distrito.</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-teal-500 shrink-0" style="width: 18px; height: 18px;"></i> Trabajo directo en ministerios de la iglesia local (predicación, visitación, consejería).</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-teal-500 shrink-0" style="width: 18px; height: 18px;"></i> Participación obligatoria en convenciones y retiros.</li>
+                        </ul>
+                        <div class="bg-teal-50 p-3 rounded-lg text-xs text-teal-800 border border-teal-200">
+                            <strong>¿Evaluación Negativa?:</strong> Se da 1 año adicional de observación. Si sigue negativo, pierde la calidad de aspirante.
+                        </div>
+                    </div>
+
+                    <!-- Flecha -->
+                    <div class="hidden lg:flex items-center justify-center text-gray-400">
+                        <i data-lucide="arrow-right" style="width: 48px; height: 48px;"></i>
+                    </div>
+
+                    <!-- Etapa 2 -->
+                    <div class="flex-1 bg-white p-6 rounded-2xl shadow-md border-t-8 border-blue-600 relative">
+                        <div class="absolute -top-5 right-6 bg-blue-600 text-white text-sm font-bold px-4 py-1 rounded-full">Años 4 al 6</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">2. Proceso de Ordenación</h4>
+                        <p class="text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="user" style="width: 18px; height: 18px;"></i> Rol: Candidato
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-blue-500 shrink-0" style="width: 18px; height: 18px;"></i> Desarrollar proyecto integral de Iglesia Local (involucrando todos los ministerios).</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-blue-500 shrink-0" style="width: 18px; height: 18px;"></i> Planear e iniciar proyecto de trabajo hacia la Comunidad.</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-blue-500 shrink-0" style="width: 18px; height: 18px;"></i> Inicio y redacción del "Ensayo Crítico" (Vida ministerial, Doctrina, Filosofía).</li>
+                            <li class="flex gap-2"><i data-lucide="check-circle" class="text-blue-500 shrink-0" style="width: 18px; height: 18px;"></i> El Pastor Admin. fomenta el desarrollo integral con la iglesia.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EL ÚLTIMO AÑO -->
+            <section>
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="calendar" class="text-blue-600" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 border-b-4 border-blue-600 pb-1">Hitos del Último Año</h3>
+                </div>
+                <p class="text-gray-600 mb-8">El sexto año consolida el proceso con pasos y fechas estrictas de evaluación y aprobación final.</p>
+                
+                <div class="relative border-l-4 border-blue-200 ml-4 sm:ml-8 space-y-8 pb-4">
+                    
+                    <!-- Step 1 -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="file-text" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">1er Trimestre</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Entrega del Ensayo Crítico</h4>
+                            <p class="text-sm text-gray-600">El candidato entrega el Ensayo (Vida ministerial, Doctrina y Filosofía) al Pastor Administrativo.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="book-open" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">Abril</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Evaluación del Seminario</h4>
+                            <p class="text-sm text-gray-600">El Comité de Distrito remite el Ensayo al Seminario Teológico para su evaluación.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="users" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">Mayo</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Notificación de Examen Oral</h4>
+                            <p class="text-sm text-gray-600">El Distrito informa al candidato que debe presentarse ante la Comisión Examinadora Nacional.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 (Highlight) -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-yellow-400 text-white shadow-[0_0_15px_rgba(250,204,21,0.5)] border-4 border-white">
+                            <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-yellow-400 shadow-md">
+                            <span class="text-xs font-bold tracking-wider uppercase text-yellow-600">Julio</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Examen Oral Nacional</h4>
+                            <p class="text-sm text-gray-600">Entrevista de máx. 90 minutos con la Comisión Nacional (representantes de Distritos, Seminario y Junta Ejecutiva). Evalúa Escritura, doctrina y administración ACyM.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="building" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">Agosto</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Decisión del Distrito</h4>
+                            <p class="text-sm text-gray-600">El Comité de Distrito analiza y decide si recomienda la ordenación (requiere 2/3 de aprobación).</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative pl-8 sm:pl-12 mb-6">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="briefcase" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">Hasta el 30 Sept.</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Envío a Junta Ejecutiva</h4>
+                            <p class="text-sm text-gray-600">La recomendación y el Archivo de Documentación llegan a la Junta Ejecutiva para su aprobación o rechazo final.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 (Last) -->
+                    <div class="relative pl-8 sm:pl-12">
+                        <div class="absolute -left-[14px] sm:-left-[22px] top-1 rounded-full p-2 bg-blue-600 text-white border-4 border-white">
+                            <i data-lucide="award" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold tracking-wider uppercase text-blue-500">Cierre</span>
+                            <h4 class="text-lg font-bold text-gray-800 mt-1 mb-2">Ceremonia de Ordenación</h4>
+                            <p class="text-sm text-gray-600">Realizada por la Junta Ejecutiva y el Distrito en la iglesia local o durante la Junta General.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="max-w-5xl mx-auto mt-8 text-center text-sm text-gray-500 pb-8">
+            Basado en el documento oficial: "Normas para la ordenación ministerial, Iglesia Alianza Cristiana y Misionera de Chile" (2016).
+        </footer>
+    </div>
+
+    <!-- Script para lógica de la infografía (Íconos) -->
+    <script>
+        // Inicializar los íconos de Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>
